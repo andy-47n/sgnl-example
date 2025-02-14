@@ -97,7 +97,7 @@ func (d *Datasource) GetPage(ctx context.Context, request *Request) (*Response, 
 		}
 	}
 
-	objects, nextCursor, parseErr := ParseResponse(body)
+	objects, nextCursor, parseErr := ParseTeamsResponse(body)
 	if parseErr != nil {
 		return nil, parseErr
 	}
@@ -108,7 +108,7 @@ func (d *Datasource) GetPage(ctx context.Context, request *Request) (*Response, 
 	return response, nil
 }
 
-func ParseResponse(body []byte) (objects []map[string]any, nextCursor string, err *framework.Error) {
+func ParseTeamsResponse(body []byte) (objects []map[string]any, nextCursor string, err *framework.Error) {
 	var data *DatasourceResponse
 
 	unmarshalErr := json.Unmarshal(body, &data)
