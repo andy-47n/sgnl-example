@@ -1,2 +1,2 @@
 # sgnl-example
-testing here
+Solution for CX Architect Interview Assignment
